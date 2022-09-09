@@ -4,9 +4,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Task002 {
-    public static String[] cardSuit = {"Черви", "Буби", "Крести", "Пики"};
-    public static String[] cardSeniority = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Валет", "Дама", "Король", "Туз"};
-    public static String[] randomCombination = new String[52];
+    public final static String[] cardSuit = {"Черви", "Буби", "Крести", "Пики"};
+    public final static String[] cardSeniority = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Валет", "Дама", "Король", "Туз"};
+    public final static String[] cardPack = new String[52];
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -30,23 +30,23 @@ public class Task002 {
     public static void cardSorting() {
 
         for (int i = 0; i < cardSeniority.length; i++) {
-            randomCombination[i] = cardSuit[0] + " " + cardSeniority[i];
+            cardPack[i] = cardSuit[0] + " " + cardSeniority[i];
         }
         for (int i = 0; i < cardSeniority.length; i++) {
-            randomCombination[13 + i] = cardSuit[1] + " " + cardSeniority[i];
+            cardPack[13 + i] = cardSuit[1] + " " + cardSeniority[i];
         }
         for (int i = 0; i < cardSeniority.length; i++) {
-            randomCombination[26 + i] = cardSuit[2] + " " + cardSeniority[i];
+            cardPack[26 + i] = cardSuit[2] + " " + cardSeniority[i];
         }
         for (int i = 0; i < cardSeniority.length; i++) {
-            randomCombination[39 + i] = cardSuit[3] + " " + cardSeniority[i];
+            cardPack[39 + i] = cardSuit[3] + " " + cardSeniority[i];
         }
         Random rnd = new Random();
-        for (int i = 0; i < randomCombination.length; i++) {
+        for (int i = 0; i < cardPack.length; i++) {
             int index = rnd.nextInt(i + 1);
-            String tmp = randomCombination[index];
-            randomCombination[index] = randomCombination[i];
-            randomCombination[i] = tmp;
+            String tmp = cardPack[index];
+            cardPack[index] = cardPack[i];
+            cardPack[i] = tmp;
         }
     }
 
@@ -55,7 +55,7 @@ public class Task002 {
         for (int i = 1; i <= playersCount; i++) {
             System.out.print("У игрока " + i + " карты: ");
             for (int j = 0; j < 5; j++) {
-                System.out.print(randomCombination[index] + ", ");
+                System.out.print(cardPack[index] + ", ");
                 index++;
             }
             System.out.println();
