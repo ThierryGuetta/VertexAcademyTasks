@@ -10,11 +10,11 @@ public class Task006 {
         }
         System.out.println(Arrays.toString(array));
 
-        int index = 0;
+        boolean index = true;
         for (int i = 1; i < array.length; i++) {
-            if (array[i - 1] >= array[i]) index++;
+            if (array[i - 1] >= array[i]) index = false;
         }
-        if (index == 0) {
+        if (index) {
             System.out.println("Строгая последовательность");
         } else {
             System.out.println("Не строгая последовательность");
