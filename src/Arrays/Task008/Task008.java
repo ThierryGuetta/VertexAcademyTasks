@@ -29,14 +29,13 @@ public class Task008 {
 
         int[] secondArray = new int[index];
 
-        for (int i = 0; i < secondArray.length; i++) {
+        index = 0;
             for (int k : firstArray) {
                 if (k % 2 == 0) {
-                    secondArray[i] = k;
-                    i++;
+                    secondArray[index] = k;
+                    index++;
                 }
             }
-        }
         if (secondArray.length == 0) {
             System.out.println("Второй массив пуст");
         } else {
